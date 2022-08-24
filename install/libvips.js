@@ -41,7 +41,8 @@ const distBaseUrl = process.env.npm_config_sharp_dist_base_url || process.env.SH
 const installationForced = !!(process.env.npm_config_sharp_install_force || process.env.SHARP_INSTALL_FORCE);
 
 const fail = function (err) {
-  libvips.log(err);
+	libvips.log(JSON.stringify(err))
+  libvips.log("error_yugank"+err);
   if (err.code === 'EACCES') {
     libvips.log('Are you trying to install as a root or sudo user?');
     libvips.log('- For npm <= v6, try again with the "--unsafe-perm" flag');
